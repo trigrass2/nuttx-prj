@@ -1,0 +1,29 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config EXAMPLES_COMPLX_MATH
+	bool "complex math example"
+	default n
+	---help---
+		Enable the complex math example
+
+if EXAMPLES_COMPLX_MATH
+
+config EXAMPLES_COMPLX_MATH_PROGNAME
+	string "Program name"
+	default "complex_math_example"
+	---help---
+		This is the name of the program that will be use when the NSH ELF
+		program is installed.
+
+config EXAMPLES_COMPLX_MATH_PRIORITY
+	int "complex math example task priority"
+	default 100
+
+config EXAMPLES_COMPLX_MATH_STACKSIZE
+	int "complex math example stack size"
+	default 2048
+
+endif

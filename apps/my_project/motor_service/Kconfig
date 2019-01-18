@@ -1,0 +1,79 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+menu "motor_serveice"
+
+choice 
+	prompt "motor driver slect(Elmo/custom-485"
+	default MOTOR_DRIVER_ELMO
+
+	config 	MOTOR_DRIVER_ELMO
+	bool "driver Elmo"
+	select 	MOTOR_DRIVER_ELMO_1
+
+	config 	MOTOR_DRIVER_CUSTOM_485
+	bool "driver custom-485"
+	select MOTOR_DRIVER_CUSTOM_485_1
+
+endchoice
+
+config CANOPEN_PROTOCOL_STACK
+	bool "Canopen Protocol Stack"
+	default 1
+	---help---
+		Enable the CANOPEN protocol stack
+
+if CANOPEN_PROTOCOL_STACK
+
+config MOTOR_TASK_PRIORITY
+	int "MOTOR service task priority"
+	default 200
+	range 100 250
+	---help---
+		motor service task priority, allowed values {100,250} 
+
+config MOTOR_READ_THREAD_PRIORITY
+	int "MOTOR read thread priority"
+	default 199
+	range 100 250
+	---help---
+		motor read thread priority, allowed values {100,250} 
+
+config MOTOR_USER_NO
+	int "Motor device no"
+	default 3
+	range 1 6
+	---help---
+	how many number of zhe actual motor device
+
+menu "Elmo driver"
+
+config ELMO_AUTO_BACK_POSITION_TIME
+	int "Elmo driver auto back position time"
+	default 10
+	range 0 1000
+	---help---
+		The interval time of Elmo driver auto back motor position,zhe unit is ms
+
+
+endmenu # Elmo driver
+
+config CANOPEN_PROTOCOL_STACK_PORT
+	int "Port used for CANOPEN transmissions"
+	default 0
+	---help---
+		Port used for MODBUS transmissions, default = 0 (i.e., /dev/ttyS0)
+
+config CANOPEN_PROTOCOL_STACK_BAUD
+	int "CANOPEN protocol stack baudrate"
+	default 500000
+	range 500000 1000000
+	---help---
+		canopen protocol stack baudrate, allowed values {500000,1000000}
+
+endif
+
+
+
+endmenu # motor_serveice

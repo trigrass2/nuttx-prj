@@ -1,0 +1,96 @@
+############################################################################
+# libc/DSP_Lib/FilteringFunctions/Make.defs
+#
+#   Copyright (C) 2012, 2017 Gregory Nutt. All rights reserved.
+#   Author: Gregory Nutt <gnutt@nuttx.org>
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+#
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in
+#    the documentation and/or other materials provided with the
+#    distribution.
+# 3. Neither the name NuttX nor the names of its contributors may be
+#    used to endorse or promote products derived from this software
+#    without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+# FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+# COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+# INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+# BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+# OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+# AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+# ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+#
+############################################################################
+
+ifeq ($(CONFIG_FILTER_FUNC),y)
+
+# Add the dsp lib files to the build
+
+CSRCS +=arm_biquad_cascade_df1_32x64_init_q31.c    arm_fir_decimate_q31.c
+CSRCS +=arm_biquad_cascade_df1_32x64_q31.c         arm_fir_f32.c
+CSRCS +=arm_biquad_cascade_df1_f32.c               arm_fir_fast_q15.c
+CSRCS +=arm_biquad_cascade_df1_fast_q15.c          arm_fir_fast_q31.c
+CSRCS +=arm_biquad_cascade_df1_fast_q31.c          arm_fir_init_f32.c
+CSRCS +=arm_biquad_cascade_df1_init_f32.c          arm_fir_init_q15.c
+CSRCS +=arm_biquad_cascade_df1_init_q15.c          arm_fir_init_q31.c
+CSRCS +=arm_biquad_cascade_df1_init_q31.c          arm_fir_init_q7.c
+CSRCS +=arm_biquad_cascade_df1_q15.c               arm_fir_interpolate_f32.c
+CSRCS +=arm_biquad_cascade_df1_q31.c               arm_fir_interpolate_init_f32.c
+CSRCS +=arm_biquad_cascade_df2T_f32.c              arm_fir_interpolate_init_q15.c
+CSRCS +=arm_biquad_cascade_df2T_f64.c              arm_fir_interpolate_init_q31.c
+CSRCS +=arm_biquad_cascade_df2T_init_f32.c         arm_fir_interpolate_q15.c
+CSRCS +=arm_biquad_cascade_df2T_init_f64.c         arm_fir_interpolate_q31.c
+CSRCS +=arm_biquad_cascade_stereo_df2T_f32.c       arm_fir_lattice_f32.c
+CSRCS +=arm_biquad_cascade_stereo_df2T_init_f32.c  arm_fir_lattice_init_f32.c
+CSRCS +=arm_conv_f32.c                             arm_fir_lattice_init_q15.c
+CSRCS +=arm_conv_fast_opt_q15.c                    arm_fir_lattice_init_q31.c
+CSRCS +=arm_conv_fast_q15.c                        arm_fir_lattice_q15.c
+CSRCS +=arm_conv_fast_q31.c                        arm_fir_lattice_q31.c
+CSRCS +=arm_conv_opt_q15.c                         arm_fir_q15.c
+CSRCS +=arm_conv_opt_q7.c                          arm_fir_q31.c
+CSRCS +=arm_conv_partial_f32.c                     arm_fir_q7.c
+CSRCS +=arm_conv_partial_fast_opt_q15.c            arm_fir_sparse_f32.c
+CSRCS +=arm_conv_partial_fast_q15.c                arm_fir_sparse_init_f32.c
+CSRCS +=arm_conv_partial_fast_q31.c                arm_fir_sparse_init_q15.c
+CSRCS +=arm_conv_partial_opt_q15.c                 arm_fir_sparse_init_q31.c
+CSRCS +=arm_conv_partial_opt_q7.c                  arm_fir_sparse_init_q7.c
+CSRCS +=arm_conv_partial_q15.c                     arm_fir_sparse_q15.c
+CSRCS +=arm_conv_partial_q31.c                     arm_fir_sparse_q31.c
+CSRCS +=arm_conv_partial_q7.c                      arm_fir_sparse_q7.c
+CSRCS +=arm_conv_q15.c                             arm_iir_lattice_f32.c
+CSRCS +=arm_conv_q31.c                             arm_iir_lattice_init_f32.c
+CSRCS +=arm_conv_q7.c                              arm_iir_lattice_init_q15.c
+CSRCS +=arm_correlate_f32.c                        arm_iir_lattice_init_q31.c
+CSRCS +=arm_correlate_fast_opt_q15.c               arm_iir_lattice_q15.c
+CSRCS +=arm_correlate_fast_q15.c                   arm_iir_lattice_q31.c
+CSRCS +=arm_correlate_fast_q31.c                   arm_lms_f32.c
+CSRCS +=arm_correlate_opt_q15.c                    arm_lms_init_f32.c
+CSRCS +=arm_correlate_opt_q7.c                     arm_lms_init_q15.c
+CSRCS +=arm_correlate_q15.c                        arm_lms_init_q31.c
+CSRCS +=arm_correlate_q31.c                        arm_lms_norm_f32.c
+CSRCS +=arm_correlate_q7.c                         arm_lms_norm_init_f32.c
+CSRCS +=arm_fir_decimate_f32.c                     arm_lms_norm_init_q15.c
+CSRCS +=arm_fir_decimate_fast_q15.c                arm_lms_norm_init_q31.c
+CSRCS +=arm_fir_decimate_fast_q31.c                arm_lms_norm_q15.c
+CSRCS +=arm_fir_decimate_init_f32.c                arm_lms_norm_q31.c
+CSRCS +=arm_fir_decimate_init_q15.c                arm_lms_q15.c
+CSRCS +=arm_fir_decimate_init_q31.c                arm_lms_q31.c
+
+
+# Add the dsp lib files directory to the build
+
+DEPPATH += --dep-path DSP_Lib/Source/FilteringFunctions
+VPATH += :DSP_Lib/Source/FilteringFunctions
+
+endif

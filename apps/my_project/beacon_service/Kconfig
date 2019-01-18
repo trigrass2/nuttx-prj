@@ -1,0 +1,23 @@
+menu "Beacon service"
+
+config BEACON_TASK_PRIORITY
+	int "Beacon service task priority"
+	default 205
+	range 100 250
+	---help---
+		beacon service task priority, allowed values {100,250} 
+
+config BEACON_TX_THREAD_PRIORITY
+	int "Beacon send thread priority"
+	default 160
+	range 50 250
+	---help---
+		beacon send thread priority, allowed values {50,250} 
+
+config BEACONSERVICE_PUBLISH_BEACON_DATA
+	bool "beacon service task publish beacon"
+	default 1
+	---help---
+		beacon service task publish beacon
+
+endmenu # Beacon service

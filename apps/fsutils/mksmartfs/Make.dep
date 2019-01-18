@@ -1,0 +1,19 @@
+mksmartfs.o: mksmartfs.c \
+ /home/peng/workspace/stm32f746g-disco/nuttx/include/nuttx/config.h \
+ /home/peng/workspace/stm32f746g-disco/nuttx/include/sys/stat.h \
+ /home/peng/workspace/stm32f746g-disco/nuttx/include/sys/types.h \
+ /home/peng/workspace/stm32f746g-disco/nuttx/include/nuttx/compiler.h \
+ /home/peng/workspace/stm32f746g-disco/nuttx/include/stdint.h \
+ /home/peng/workspace/stm32f746g-disco/nuttx/include/arch/types.h \
+ /home/peng/workspace/stm32f746g-disco/nuttx/include/limits.h \
+ /home/peng/workspace/stm32f746g-disco/nuttx/include/arch/limits.h \
+ /home/peng/workspace/stm32f746g-disco/nuttx/include/time.h \
+ /home/peng/workspace/stm32f746g-disco/nuttx/include/sys/ioctl.h \
+ /home/peng/workspace/stm32f746g-disco/nuttx/include/nuttx/fs/ioctl.h \
+ /home/peng/workspace/stm32f746g-disco/nuttx/include/nuttx/serial/tioctl.h \
+ /home/peng/workspace/stm32f746g-disco/nuttx/include/fcntl.h \
+ /home/peng/workspace/stm32f746g-disco/nuttx/include/errno.h \
+ /home/peng/workspace/stm32f746g-disco/apps/include/fsutils/mksmartfs.h \
+ /home/peng/workspace/stm32f746g-disco/nuttx/include/nuttx/fs/smart.h \
+ /home/peng/workspace/stm32f746g-disco/nuttx/include/stdbool.h \
+ /home/peng/workspace/stm32f746g-disco/nuttx/include/unistd.h

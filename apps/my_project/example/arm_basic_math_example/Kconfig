@@ -1,0 +1,29 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config EXAMPLES_ARM_BASIC_MATH
+	bool "arm basic math example"
+	default n
+	---help---
+		Enable the arm basic math example
+
+if EXAMPLES_ARM_BASIC_MATH
+
+config EXAMPLES_ARM_BASIC_MATH_PROGNAME
+	string "Program name"
+	default "arm_basic_math_example"
+	---help---
+		This is the name of the program that will be use when the NSH ELF
+		program is installed.
+
+config EXAMPLES_ARM_BASIC_MATH_PRIORITY
+	int "arm basic math example task priority"
+	default 100
+
+config EXAMPLES_ARM_BASIC_MATH_STACKSIZE
+	int "arm basic math example stack size"
+	default 2048
+
+endif

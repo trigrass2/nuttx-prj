@@ -1,0 +1,86 @@
+menu "PC control"
+
+config PC_CONTROL_MOTOR_DATA_BACK
+	bool "PC contorl read motor data"
+	default 1
+	---help---
+		Enable the pc_control task read motor data
+
+if PC_CONTROL_MOTOR_DATA_BACK
+
+config MOTOR_AUTO_BACK_INTERVAL
+	int "motor auto back position data interval(ms)"
+	default 0
+	range 0 1000
+	---help---
+		 motor auto back position data interval,zhe range is{0,1000}
+endif
+
+config PC_CONTROL_BEACON_DATA_BACK
+	bool "PC contorl read beacon data"
+	default 1
+	---help---
+		Enable the pc_control task read beacon data
+if PC_CONTROL_BEACON_DATA_BACK
+
+config BEACON_AUTO_BACK_INTERVAL
+	int "beacon auto back power data interval(times)"
+	default 1
+	range 1 1000
+	---help---
+		 motor auto back power data interval,zhe range is{1,1000}
+endif
+
+
+config PC_CONTROL_SATE_SET_BEACON
+	bool "PC contorl satellite cmd control beacon"
+	default 1
+	---help---
+		Enable the pc cmd to satellite control beacon frequency and voltage
+
+config PC_CONTROL_TEMPERATURE_DATA_BACK
+	bool "PC contorl read temperature data"
+	default 1
+	---help---
+		Enable the pc_control task read temperature data
+
+config PC_CONTROL_GPS_DATA_BACK
+	bool "PC contorl read GPS data"
+	default 1
+	---help---
+		Enable the pc_control task read GPS data
+
+config PC_CONTROL_GPS_DATA_SEND_PC
+	bool "PC contorl send GPS data to PC"
+	default 0
+	---help---
+		Enable the pc_control task send GPS data to PC
+
+config PC_CONTROL_SERVER_PORT
+	int "PC control server port"
+	default 50001
+	range 0 65535
+	---help---
+		  pc contril tsak tcp/ip server port,zhe range is{0,1000}
+
+config PC_CONTROL_LOAD_BEACON_DATA
+	bool "PC contorl Load beacon data from pc to publish"
+	default 0
+	---help---
+		Enable PC contorl Load beacon data from pc to publish
+
+choice 
+	prompt "network work mode(tcp/udp)"
+	default USER_NETWORKMODE_TCP
+
+	config 	USER_NETWORKMODE_TCP
+	bool "TCP mode"
+	select 	USER_NETWORKMODE_TCP_1
+
+	config 	USER_NETWORKMODE_UDP
+	bool "UDP mode"
+	select USER_NETWORKMODE_UDP_1
+
+endchoice
+
+endmenu # PC control

@@ -1,0 +1,91 @@
+menu "low sensor service"
+
+
+
+config LOW_SENSOR_TASK_PRIORITY
+	int "low sensor service task priority"
+	default 155
+	range 100 250
+	---help---
+		motor service task priority, allowed values {100,250} 
+
+config LOW_SENSOR_GPS
+	bool "GPS sensor"
+	default 1
+	---help---
+		Enable the GPS sensor
+
+if LOW_SENSOR_GPS
+
+config LOW_SENSOR_BUF_GPS
+	int "GPS sensor read buffer length"
+	default 1024
+	range 50 2048
+	---help---
+		GPS sensor read buffer length, allowed values {50,2048} 
+
+config LOW_SENSOR_GPS_PERIOD
+	int "GPS sensor Publish timer(ms)"
+	default 1000
+	range 10 10000
+	---help---
+		GPS sensor publish timer, allowed values {10,10000} 
+
+config LOW_SENSOR_GPS_RTK
+	bool "GPS sensor use RTK"
+	default 1
+	---help---
+		use the RTK GPS sensor,or use zhe board GPS sensor
+
+config LOW_SENSOR_GPS_LOAD_ERR_VALUE
+	bool "GPS uorb data no update set to a specitic error value"
+	default 1
+	---help---
+		set zhe value to a spcitic error value ,when some of zhe publish uorb data is no updata
+
+config SATE_POINT_BUFSIZE
+	int "Satellite point struct bufer number"
+	default 100
+	range 1 10000
+	---help---
+		Satellite point struct bufer number, allowed values {1,10000} 
+
+config GPS_CAL_SATE_POINT
+	bool "Satellite point from GPS"
+	default 1
+	---help---
+		use the GPS data calculate satellite point
+
+config GPS_CAL_BEACON
+	bool "Beacon frequecy and voltage from GPS and memory form"
+	default 0
+	---help---
+		Beacon frequecy and voltage from GPS and memory form
+
+endif
+
+
+config LOW_SENSOR_TEMPERATURE
+	bool "temperature sensor"
+	default 1
+	---help---
+		Enable the temperature sensor
+
+config LOW_SENSOR_FPPA_LED
+	bool "System LED"
+	default 1
+	---help---
+		Enable the LED output
+
+if LOW_SENSOR_TEMPERATURE
+
+config LOW_SENSOR_TEMPERATURE_PERIOD
+	int "Temperature sensor Publish timer(ms)"
+	default 1000
+	range 100 10000
+	---help---
+		Temperature sensor publish timer, allowed values {100,10000} 
+
+endif
+
+endmenu # low sensor service

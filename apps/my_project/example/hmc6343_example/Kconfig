@@ -1,0 +1,29 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config EXAMPLES_HMC6343
+	bool "Honeywell HMC6343 example"
+	default n
+	---help---
+		Enable the Honeywell HMC6343 example
+
+if EXAMPLES_HMC6343
+
+config EXAMPLES_HMC6343_PROGNAME
+	string "Program name"
+	default "hmc6343_example"
+	---help---
+		This is the name of the program that will be use when the NSH ELF
+		program is installed.
+
+config EXAMPLES_HMC6343_PRIORITY
+	int "Honeywell HMC6343 example task priority"
+	default 100
+
+config EXAMPLES_HMC6343_STACKSIZE
+	int "Honeywell HMC6343 example stack size"
+	default 2048
+
+endif

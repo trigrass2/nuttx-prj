@@ -1,0 +1,29 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config SATELLITE_SIGNAL_CONTROL
+	bool "satellite signal control application"
+	default n
+	---help---
+		Enable the satellite signal control application
+
+if SATELLITE_SIGNAL_CONTROL
+
+config SATELLITE_SIGNAL_CONTROL_PROGNAME
+	string "Program name"
+	default "satellite signal control"
+	---help---
+		This is the name of the program that will be use when the NSH ELF
+		program is installed.
+
+config SATELLITE_SIGNAL_CONTROL_PRIORITY
+	int "satellite signal control task priority"
+	default 100
+
+config SATELLITE_SIGNAL_CONTROL_STACKSIZE
+	int "satellite signal control stack size"
+	default 2048
+
+endif

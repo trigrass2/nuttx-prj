@@ -1,0 +1,165 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+menu "ARM DSP Library Support"
+
+config LIB_ARM_DSP
+	bool "CMSIS DSP Software Library"
+	default n
+	---help---
+		This user manual describes the CMSIS DSP software library, a suite of common signal processing functions for use on Cortex-M processor based devices.
+
+		The library is divided into a number of functions each covering a specific category:
+
+		Basic math functions
+		Fast math functions
+		Complex math functions
+		Filters
+		Matrix functions
+		Transforms
+		Motor control functions
+		Statistical functions
+		Support functions
+		Interpolation functions
+
+		If ARCH_MATH_H is not defined, then this option can be selected to build a generic,
+		math library built into NuttX.  This math library comes from the Rhombus OS and
+		was written by Nick Johnson.  The Rhombus OS math library port was contributed by
+		Darcy Gong.
+
+if LIB_ARM_DSP
+
+config BASIC_MATH_FUNC
+	bool "Basic math functions"
+	default n
+	---help---
+	Content:
+
+ 	Vector Absolute Value
+ 	Vector Addition
+ 	Vector Dot Product
+ 	Vector Multiplication
+ 	Vector Negate
+ 	Vector Offset
+ 	Vector Scale
+ 	Vector Shift
+ 	Vector Subtraction
+ 
+config FAST_MATH_FUNC
+	bool "Fast math functions"
+	default n
+	---help--- 
+	This set of functions provides a fast approximation to sine, cosine, and square root. As compared to most of the other functions in the CMSIS math library, the fast math functions operate on individual values and not arrays. There are separate functions for Q15, Q31, and floating-point data.
+
+	Content:
+ 	Square Root
+ 	Cosine
+ 	Sine
+
+config COMPLEX_MATH_FUNC
+	bool "Complex math functions"
+	default n
+	---help---  	
+ 	This set of functions operates on complex data vectors. The data in the complex arrays is stored in an interleaved fashion (real, imag, real, imag, ...). In the API functions, the number of samples in a complex array refers to the number of complex values; the array contains twice this number of real values.
+
+	Content:
+ 	Complex Conjugate
+ 	Complex Dot Product
+ 	Complex Magnitude
+ 	Complex Magnitude Squared
+ 	Complex-by-Complex Multiplication
+ 	Complex-by-Real Multiplication
+
+config FILTER_FUNC
+	bool "Filtering functions"
+	default n
+	---help---  
+
+	Content:
+ 	High Precision Q31 Biquad Cascade Filter
+ 	Biquad Cascade IIR Filters Using Direct Form I Structure
+ 	Biquad Cascade IIR Filters Using a Direct Form II Transposed Structure
+ 	Convolution
+ 	Partial Convolution
+ 	Correlation
+ 	Finite Impulse Response (FIR) Decimator
+ 	Finite Impulse Response (FIR) Filters
+ 	Finite Impulse Response (FIR) Lattice Filters
+ 	Finite Impulse Response (FIR) Sparse Filters
+ 	Infinite Impulse Response (IIR) Lattice Filters
+ 	Least Mean Square (LMS) Filters
+ 	Normalized LMS Filters
+ 	Finite Impulse Response (FIR) Interpolator
+
+config MATRIX_FUNC
+	bool "Matrix functions"
+	default n
+	---help--- 
+	This set of functions provides basic matrix math operations. The functions operate on matrix data structures. 
+
+	Content:
+ 	Matrix Addition
+ 	Complex Matrix Multiplication
+ 	Matrix Initialization
+ 	Matrix Inverse
+ 	Matrix Multiplication
+ 	Matrix Scale
+ 	Matrix Subtraction
+ 	Matrix Transpose
+
+config TRANSFORM_FUNC
+	bool "Transform functions"
+	default n
+	---help--- 
+
+	Content:
+ 	Complex FFT Functions
+ 	DCT Type IV Functions
+ 	Real FFT Functions
+
+config CONTROLLER_FUNC
+	bool "Controller functions"
+	default n
+	---help--- 
+
+	Content:
+ 	PID Motor Control
+ 	Vector Clarke Transform
+ 	Vector Inverse Clarke Transform
+ 	Vector Park Transform
+ 	Vector Inverse Park transform
+ 	Sine Cosine
+ 
+config STATISTICS_FUNC
+	bool "Statistics functions"
+	default n
+	---help--- 
+
+	Content:
+ 	Maximum
+ 	Mean
+ 	Minimum
+ 	Power
+ 	Root mean square (RMS)
+ 	Standard deviation
+ 	Variance
+
+config SUPPORT_FUNC
+	bool "Support functions"
+	default n
+	---help---
+
+	Content:
+ 	Vector Copy
+ 	Vector Fill
+ 	Convert 32-bit floating point value
+ 	Convert 16-bit Integer value
+ 	Convert 32-bit Integer value
+ 	Convert 8-bit Integer value
+
+
+endif # !LIB_ARM_DSP 
+
+endmenu #DSP Library Support

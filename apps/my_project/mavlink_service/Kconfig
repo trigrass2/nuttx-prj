@@ -1,0 +1,48 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config APP_MAVLINK_SERVICE
+	bool "\"mavlink_service\" Application"
+	default n
+	---help---
+		Enable the mavlink_service application
+
+if APP_MAVLINK_SERVICE
+
+config APP_MAVLINK_SERVICE_PROGNAME
+	string "Program name"
+	default "mavlink_service"
+	---help---
+		This is the name of the program that will be use when the NSH ELF
+		program is installed.
+
+config APP_MAVLINK_SERVICE_PRIORITY
+	int "Task priority"
+	default 100
+
+config APP_MAVLINK_SERVICE_STACKSIZE
+	int "Stack size"
+	default 2048
+
+choice
+	prompt "Net Protocol"
+	default UDP
+	---help---
+		choose the net protocol to send mavlink.
+
+config  APP_MAVLINK_SERVICE_NET_PROTOCOL_UDP
+	bool "UDP"
+	---help---
+		With this choice, your board will be a UDP server.
+
+config  APP_MAVLINK_SERVICE_NET_PROTOCOL_TCP
+	bool "TCP"
+	---help---
+		With this choice, your board will be a TCP server.
+
+endchoice # Net Protocol
+
+
+endif

@@ -1,0 +1,1 @@
+{ "ftpd_start", SCHED_PRIORITY_DEFAULT, 2048, ftpd_start_main },

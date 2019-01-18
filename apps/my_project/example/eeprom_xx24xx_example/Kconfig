@@ -1,0 +1,29 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config EXAMPLES_EEPROM_XX24XX
+	bool "EEPROM_XX24XX example"
+	default n
+	---help---
+		Enable the EEPROM_XX24XX example
+
+if EXAMPLES_EEPROM_XX24XX
+
+config EXAMPLES_EEPROM_XX24XX_PROGNAME
+	string "Program name"
+	default "eeprom_xx24xx_example"
+	---help---
+		This is the name of the program that will be use when the NSH ELF
+		program is installed.
+
+config EXAMPLES_EEPROM_XX24XX_PRIORITY
+	int "EEPROM_XX24XX example task priority"
+	default 100
+
+config EXAMPLES_EEPROM_XX24XX_STACKSIZE
+	int "EEPROM_XX24XX example stack size"
+	default 2048
+
+endif

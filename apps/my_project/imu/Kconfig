@@ -1,0 +1,30 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config MYPROJECT_IMU
+	bool "imu task"
+	default n
+	---help---
+		Enable the \"imu\" project
+
+if MYPROJECT_IMU
+
+config MYPROJECT_IMU_PROGNAME
+	string "IMU"
+	default "IMU"
+	depends on BUILD_KERNEL
+	---help---
+		This is the name of the program that will be use when the NSH ELF
+		program is installed.
+
+config MYPROJECT_IMU_PRIORITY
+	int "imu task priority"
+	default 200
+
+config MYPROJECT_IMU_STACKSIZE
+	int "imu stack size"
+	default 4096
+
+endif

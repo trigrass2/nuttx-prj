@@ -1,0 +1,29 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config EXAMPLES_UORB
+	bool "uorb publish/subscribe example"
+	default n
+	---help---
+		Enable the uorb publish/subscribe example
+
+if EXAMPLES_UORB
+
+config EXAMPLES_UORB_PROGNAME
+	string "Program name"
+	default "uorb_example"
+	---help---
+		This is the name of the program that will be use when the NSH ELF
+		program is installed.
+
+config EXAMPLES_UORB_PRIORITY
+	int "uorb example task priority"
+	default 100
+
+config EXAMPLES_UORB_STACKSIZE
+	int "uorb example stack size"
+	default 2048
+
+endif

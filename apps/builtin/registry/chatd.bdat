@@ -1,0 +1,1 @@
+{ "chatd", 100, 2048, chatd_main },

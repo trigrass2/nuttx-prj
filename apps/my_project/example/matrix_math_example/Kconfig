@@ -1,0 +1,29 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config EXAMPLES_MATRIX_MATH
+	bool "matrix math example"
+	default n
+	---help---
+		Enable the matrix math example
+
+if EXAMPLES_MATRIX_MATH
+
+config EXAMPLES_MATRIX_MATH_PROGNAME
+	string "Program name"
+	default "matrix_math_example"
+	---help---
+		This is the name of the program that will be use when the NSH ELF
+		program is installed.
+
+config EXAMPLES_MATRIX_MATH_PRIORITY
+	int "matrix math example task priority"
+	default 100
+
+config EXAMPLES_MATRIX_MATH_STACKSIZE
+	int "matrix math example stack size"
+	default 2048
+
+endif

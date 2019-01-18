@@ -1,0 +1,29 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config EXAMPLES_MOTOR_PWM_IO
+	bool "motor pwm&io mode example"
+	default n
+	---help---
+		Enable the motor pwm&io mode example
+
+if EXAMPLES_MOTOR_PWM_IO
+
+config EXAMPLES__MOTOR_PWM_IO_PROGNAME
+	string "Program name"
+	default "motor_pwm_io_example"
+	---help---
+		This is the name of the program that will be use when the NSH ELF
+		program is installed.
+
+config EXAMPLES_MOTOR_PWM_IO_PRIORITY
+	int "motor pwm&io mode example task priority"
+	default 100
+
+config EXAMPLES_MOTOR_PWM_IO_STACKSIZE
+	int "motor pwm&io mode example stack size"
+	default 2048
+
+endif

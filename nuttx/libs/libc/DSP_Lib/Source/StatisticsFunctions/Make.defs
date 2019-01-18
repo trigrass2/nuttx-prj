@@ -1,0 +1,54 @@
+############################################################################
+# libc/DSP_Lib/StatisticsFunctions/Make.defs
+#
+#   Copyright (C) 2012, 2017 Gregory Nutt. All rights reserved.
+#   Author: Gregory Nutt <gnutt@nuttx.org>
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+#
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in
+#    the documentation and/or other materials provided with the
+#    distribution.
+# 3. Neither the name NuttX nor the names of its contributors may be
+#    used to endorse or promote products derived from this software
+#    without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+# FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+# COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+# INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+# BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+# OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+# AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+# ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+#
+############################################################################
+
+ifeq ($(CONFIG_STATISTICS_FUNC),y)
+
+# Add the dsp lib files to the build
+
+CSRCS += arm_max_f32.c   arm_mean_q31.c  arm_power_f32.c  arm_rms_q31.c  arm_var_q31.c
+CSRCS += arm_max_q15.c   arm_mean_q7.c   arm_power_q15.c  arm_std_f32.c
+CSRCS += arm_max_q31.c   arm_min_f32.c   arm_power_q31.c  arm_std_q15.c
+CSRCS += arm_max_q7.c    arm_min_q15.c   arm_power_q7.c   arm_std_q31.c
+CSRCS += arm_mean_f32.c  arm_min_q31.c   arm_rms_f32.c    arm_var_f32.c
+CSRCS += arm_mean_q15.c  arm_min_q7.c    arm_rms_q15.c    arm_var_q15.c
+
+
+
+# Add the dsp lib files directory to the build
+
+DEPPATH += --dep-path DSP_Lib/Source/StatisticsFunctions
+VPATH += :DSP_Lib/Source/StatisticsFunctions
+
+endif

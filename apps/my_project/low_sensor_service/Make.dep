@@ -1,0 +1,4 @@
+low_sensor_gps.o: low_sensor_gps.c
+low_sensor_temperature.o: low_sensor_temperature.c
+low_sensor_signal_point.o: low_sensor_signal_point.c
+low_sensor_service.o: low_sensor_service.c
