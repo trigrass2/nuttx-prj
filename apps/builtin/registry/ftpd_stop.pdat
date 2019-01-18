@@ -1,1 +1,0 @@
-int ftpd_stop_main(int argc, char *argv[]);

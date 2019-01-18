@@ -1,6 +1,0 @@
-{ "tee", 100, 100, tee_main },
-{ "chatd", 100, 2048, chatd_main },
-{ "telnet", 100, 2048, telnet_main },
-{ "ftpd_start", SCHED_PRIORITY_DEFAULT, 2048, ftpd_start_main },
-{ "ping", 100, 2048, ping_main },
-{ "ftpd_stop", SCHED_PRIORITY_DEFAULT, 2048, ftpd_stop_main },

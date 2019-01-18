@@ -61,6 +61,7 @@
 
 #include <nuttx/irq.h>
 
+#include "syslog.h"
 #ifdef CONFIG_RAMLOG
 
 /****************************************************************************

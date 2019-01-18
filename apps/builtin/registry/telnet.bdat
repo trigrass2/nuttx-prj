@@ -1,1 +1,0 @@
-{ "telnet", 100, 2048, telnet_main },
